@@ -12,8 +12,8 @@ def default_config():
         "max_actions_per_step": 10,
         "use_vision": True,
         "tool_calling_method": "auto",
-        "llm_provider": "openai",
-        "llm_model_name": "gpt-4o",
+        "llm_provider": "google",
+        "llm_model_name": "gemini-2.0-flash",
         "llm_num_ctx": 32000,
         "llm_temperature": 0.6,
         "llm_base_url": "",
@@ -23,12 +23,18 @@ def default_config():
         "headless": False,
         "disable_security": True,
         "enable_recording": True,
-        "window_w": 1280,
-        "window_h": 1100,
+        "window_w": 1570,
+        "window_h": 900,
         "save_recording_path": "./tmp/record_videos",
         "save_trace_path": "./tmp/traces",
         "save_agent_history_path": "./tmp/agent_history",
-        "task": "go to google.com and type 'OpenAI' click search and give me the first url",
+        "task": '''
+            Go to 'https://crm.anhtester.com/admin/authentication'
+            Login with email and password: 'admin@example.com' and '123456' 
+            Click menu Customers to open the Customer page
+            Search the customer 'Anh Tester' on search field in customer page 
+            Verify the results contains 'Anh Tester' value on table
+        ''',
     }
 
 

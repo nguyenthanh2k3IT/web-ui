@@ -14,6 +14,7 @@ logger = logging.getLogger(__name__)
 
 import gradio as gr
 
+
 from browser_use.agent.service import Agent
 from playwright.async_api import async_playwright
 from browser_use.browser.browser import Browser, BrowserConfig
@@ -35,7 +36,6 @@ from gradio.themes import Citrus, Default, Glass, Monochrome, Ocean, Origin, Sof
 from src.utils.default_config_settings import default_config, load_config_from_file, save_config_to_file, \
     save_current_config, update_ui_from_config
 from src.utils.utils import update_model_dropdown, get_latest_files, capture_screenshot
-
 # Global variables for persistence
 _global_browser = None
 _global_browser_context = None
