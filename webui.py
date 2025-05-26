@@ -1,13 +1,7 @@
-import pdb
-import logging
-
 from dotenv import load_dotenv
-
 load_dotenv()
-import os
-import glob
-import asyncio
 import argparse
+<<<<<<< HEAD
 import os
 
 logger = logging.getLogger(__name__)
@@ -1125,20 +1119,20 @@ def create_ui(config, theme_name="Ocean"):
         keep_browser_open.change(fn=close_global_browser)
 
     return demo
+=======
+from src.webui.interface import theme_map, create_ui
+>>>>>>> 886ba8f5354dca96a544ed7b7072fb41e4dcf850
 
 
 def main():
-    parser = argparse.ArgumentParser(description="Gradio UI for Browser Agent")
+    parser = argparse.ArgumentParser(description="Gradio WebUI for Browser Agent")
     parser.add_argument("--ip", type=str, default="127.0.0.1", help="IP address to bind to")
     parser.add_argument("--port", type=int, default=7788, help="Port to listen on")
     parser.add_argument("--theme", type=str, default="Ocean", choices=theme_map.keys(), help="Theme to use for the UI")
-    parser.add_argument("--dark-mode", action="store_true", help="Enable dark mode")
     args = parser.parse_args()
 
-    config_dict = default_config()
-
-    demo = create_ui(config_dict, theme_name=args.theme)
-    demo.launch(server_name=args.ip, server_port=args.port)
+    demo = create_ui(theme_name=args.theme)
+    demo.queue().launch(server_name=args.ip, server_port=args.port)
 
 
 if __name__ == '__main__':
